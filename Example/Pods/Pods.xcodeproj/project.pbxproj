@@ -7,28 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B24C53FDA9D3FE8EC055780AD079AC9 /* HSBottomSheet-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DF188C1067FA0403BCF99CC2693A6A /* HSBottomSheet-dummy.m */; };
+		572A7CD8C84F0B78A5B2D608696667A0 /* HSBottomSheet-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A96CE90675C5CC0238F83C2E58499309 /* HSBottomSheet-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8AC7B8DF16E70434A4B011211DC0163D /* BottomSheet.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 8C6371903984A3D7BBB436D51CD01FF9 /* BottomSheet.storyboard */; };
 		8ADA8E346D3C53A69D410E9DB2083FB9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		A7BE7070F03AECFEA8B1BE9104DE593E /* Pods-HSBottomSheet_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9700F612F6A033BA634B2F4A2D3543F5 /* Pods-HSBottomSheet_Tests-dummy.m */; };
-		AF9F14E9282725EDEBB7D08502A6766A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		B85110476094267C974046B7C10B613B /* HSBottomSheet-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 555163B0D527EFD9DB80820BD28A1A23 /* HSBottomSheet-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A81622CDF6C39AB78697069B846147AD /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952F1A2177ABCD4054B02A58B70716FC /* BottomSheetViewController.swift */; };
+		C22B615A2099A1B4508CFE0026DC0919 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		D70D9669EA4771156A03713BD4981162 /* Pods-HSBottomSheet_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FCDD42F689EA2D178D44B86B3A79B7 /* Pods-HSBottomSheet_Example-dummy.m */; };
-		E6CFBA1868D62C10EDB296A0262B6803 /* HSBottomSheet-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 388ADD7296A3AB5152990D85BB8809AF /* HSBottomSheet-dummy.m */; };
 		F2D421089A45FA990E28289921CEA74A /* Pods-HSBottomSheet_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C56B7DE1676AE644BE054F7215764341 /* Pods-HSBottomSheet_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F3029DD08DF92562B0A2A72AFC6728ED /* Pods-HSBottomSheet_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F487BCC3849EC301082372D4F47F35 /* Pods-HSBottomSheet_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F7FF828526C3A58C00B87B5E /* BottomSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7FF828326C3A58C00B87B5E /* BottomSheet.storyboard */; };
-		F7FF828626C3A58C00B87B5E /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FF828426C3A58C00B87B5E /* BottomSheetViewController.swift */; };
 		FBB25F77944FA4EFA3CFAC6C4B6D7489 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		6D1B1DD51A4E301F4921FC5A65D771FB /* PBXContainerItemProxy */ = {
+		1664987E0287330C6D57616EFEE6D477 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 56039FC2796B466EB1F979FFD33A1022;
 			remoteInfo = "Pods-HSBottomSheet_Example";
 		};
-		74C87F43E549161F5A32D22BD39C9AA5 /* PBXContainerItemProxy */ = {
+		84397094E69A0AF178E57A4D8D2946A5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -38,40 +38,40 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		03BA757D21C7096E4F310858547AAE6B /* Pods_HSBottomSheet_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HSBottomSheet_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		03BA757D21C7096E4F310858547AAE6B /* Pods_HSBottomSheet_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HSBottomSheet_Tests.framework; path = "Pods-HSBottomSheet_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07CED23545D1E1AC619872E360F315CB /* Pods-HSBottomSheet_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HSBottomSheet_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		0B810A52FE9F55661C9919F1A1338EE8 /* Pods-HSBottomSheet_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HSBottomSheet_Tests-Info.plist"; sourceTree = "<group>"; };
+		0C41E21FA317DB98154BC01368B422AF /* HSBottomSheet-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "HSBottomSheet-Info.plist"; sourceTree = "<group>"; };
 		103F6128C888F18D14FA2392F62F2012 /* Pods-HSBottomSheet_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HSBottomSheet_Example-frameworks.sh"; sourceTree = "<group>"; };
+		10610B4FA735FAAE50C43ECC69795999 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		13A21D4A763B0DA88FE4E8EC592EEFA2 /* Pods-HSBottomSheet_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HSBottomSheet_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		1BE2D1062798122D31300AA7A639B4F5 /* HSBottomSheet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HSBottomSheet.release.xcconfig; sourceTree = "<group>"; };
-		246D715AEB5C1FC78C09B12C747A7444 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		26282EAFC23E7496AAB8AF544B78CD11 /* Pods-HSBottomSheet_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HSBottomSheet_Example-Info.plist"; sourceTree = "<group>"; };
-		27B268521E2A4ADB0579DCF2954E9696 /* HSBottomSheet.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = HSBottomSheet.modulemap; sourceTree = "<group>"; };
-		388ADD7296A3AB5152990D85BB8809AF /* HSBottomSheet-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HSBottomSheet-dummy.m"; sourceTree = "<group>"; };
 		3BA891D997AD66B72873CABB8DC409D4 /* Pods-HSBottomSheet_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HSBottomSheet_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		555163B0D527EFD9DB80820BD28A1A23 /* HSBottomSheet-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HSBottomSheet-umbrella.h"; sourceTree = "<group>"; };
-		597B062BC1558F65DBEDD44BD0204D8D /* Pods_HSBottomSheet_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HSBottomSheet_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6728080126E23A3C4485A3DA349E4296 /* HSBottomSheet.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = HSBottomSheet.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		4B342DC90DF53A607266BF42196364D8 /* HSBottomSheet.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = HSBottomSheet.modulemap; sourceTree = "<group>"; };
+		597B062BC1558F65DBEDD44BD0204D8D /* Pods_HSBottomSheet_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HSBottomSheet_Example.framework; path = "Pods-HSBottomSheet_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7BD3F71D3008355D944E434CF7FE8BE2 /* HSBottomSheet.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = HSBottomSheet.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		7F9BD4E18F6423F1A1475C9BD658F24F /* Pods-HSBottomSheet_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HSBottomSheet_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		882251282FD19B2E5FBA3BFA013C8AAC /* HSBottomSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HSBottomSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		87ACF627A212599BB122DB785B929237 /* HSBottomSheet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HSBottomSheet.release.xcconfig; sourceTree = "<group>"; };
+		882251282FD19B2E5FBA3BFA013C8AAC /* HSBottomSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HSBottomSheet.framework; path = HSBottomSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A4713ABB32FCB274346304C18DBA0BC /* Pods-HSBottomSheet_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HSBottomSheet_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		8A4C55103EC9C669BB6BD24672790201 /* HSBottomSheet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HSBottomSheet.debug.xcconfig; sourceTree = "<group>"; };
+		8C6371903984A3D7BBB436D51CD01FF9 /* BottomSheet.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = BottomSheet.storyboard; path = HSBottomSheet/Classes/BottomSheet.storyboard; sourceTree = "<group>"; };
 		8E599D99039ABCFB876688A02261B436 /* Pods-HSBottomSheet_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HSBottomSheet_Example.release.xcconfig"; sourceTree = "<group>"; };
+		952F1A2177ABCD4054B02A58B70716FC /* BottomSheetViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BottomSheetViewController.swift; path = HSBottomSheet/Classes/BottomSheetViewController.swift; sourceTree = "<group>"; };
 		9700F612F6A033BA634B2F4A2D3543F5 /* Pods-HSBottomSheet_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HSBottomSheet_Tests-dummy.m"; sourceTree = "<group>"; };
 		98B847783D6E62ED7FF38D31A5562DC7 /* Pods-HSBottomSheet_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HSBottomSheet_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A6C42AB7B4DD098B474CBAB056049C85 /* HSBottomSheet-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HSBottomSheet-prefix.pch"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A96751DE0702BC97CAF74CE413DA06A6 /* Pods-HSBottomSheet_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HSBottomSheet_Example.modulemap"; sourceTree = "<group>"; };
+		A96CE90675C5CC0238F83C2E58499309 /* HSBottomSheet-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HSBottomSheet-umbrella.h"; sourceTree = "<group>"; };
+		BADC31096A23E168A9A62FD8A3812E7A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		C56B7DE1676AE644BE054F7215764341 /* Pods-HSBottomSheet_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HSBottomSheet_Tests-umbrella.h"; sourceTree = "<group>"; };
+		CE62700F8C5377A7CCBEC975ED4B3933 /* HSBottomSheet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HSBottomSheet.debug.xcconfig; sourceTree = "<group>"; };
+		D0DF188C1067FA0403BCF99CC2693A6A /* HSBottomSheet-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HSBottomSheet-dummy.m"; sourceTree = "<group>"; };
 		D0FCDD42F689EA2D178D44B86B3A79B7 /* Pods-HSBottomSheet_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HSBottomSheet_Example-dummy.m"; sourceTree = "<group>"; };
 		D3F487BCC3849EC301082372D4F47F35 /* Pods-HSBottomSheet_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HSBottomSheet_Example-umbrella.h"; sourceTree = "<group>"; };
-		D6CA87C2A6E6695CDCF4C4E2B91AC6C9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D941F752D4ECF45A0F292824A68BD1F4 /* HSBottomSheet-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HSBottomSheet-prefix.pch"; sourceTree = "<group>"; };
 		E528B262D8DC9D6BEE1D885D95EBFFB3 /* Pods-HSBottomSheet_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HSBottomSheet_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		EA2118E700C8AB6F7DADA2572B4F73D1 /* Pods-HSBottomSheet_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HSBottomSheet_Tests.modulemap"; sourceTree = "<group>"; };
-		F507A61E942DD56C12C5032BCCE950DD /* HSBottomSheet-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "HSBottomSheet-Info.plist"; sourceTree = "<group>"; };
-		F7FF828326C3A58C00B87B5E /* BottomSheet.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BottomSheet.storyboard; sourceTree = "<group>"; };
-		F7FF828426C3A58C00B87B5E /* BottomSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,11 +83,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		74CC2AD27DDA211942D820B470D55927 /* Frameworks */ = {
+		4F22A253427057F1206B590C47FF1474 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF9F14E9282725EDEBB7D08502A6766A /* Foundation.framework in Frameworks */,
+				C22B615A2099A1B4508CFE0026DC0919 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,24 +128,12 @@
 			path = "Target Support Files/Pods-HSBottomSheet_Tests";
 			sourceTree = "<group>";
 		};
-		2E1D258B2300669286B03FFF7D1C7294 /* Development Pods */ = {
+		1F7343426A1AD64FE5E0F31A573C94E3 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4BAD17B2106B82B337B72FBD33F4017D /* HSBottomSheet */,
+				625CC1A132A55CEB53954AF8B21F8E84 /* HSBottomSheet */,
 			);
 			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		4BAD17B2106B82B337B72FBD33F4017D /* HSBottomSheet */ = {
-			isa = PBXGroup;
-			children = (
-				F7FF828326C3A58C00B87B5E /* BottomSheet.storyboard */,
-				F7FF828426C3A58C00B87B5E /* BottomSheetViewController.swift */,
-				EEB2AD5ED82173E126913DBBFFF0FD0C /* Pod */,
-				782100A882BE68929C48947557E0BDEF /* Support Files */,
-			);
-			name = HSBottomSheet;
-			path = ../..;
 			sourceTree = "<group>";
 		};
 		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
@@ -156,19 +144,31 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		782100A882BE68929C48947557E0BDEF /* Support Files */ = {
+		5A6B6038CBFB0025CC37DC23BB8EEE20 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				27B268521E2A4ADB0579DCF2954E9696 /* HSBottomSheet.modulemap */,
-				388ADD7296A3AB5152990D85BB8809AF /* HSBottomSheet-dummy.m */,
-				F507A61E942DD56C12C5032BCCE950DD /* HSBottomSheet-Info.plist */,
-				A6C42AB7B4DD098B474CBAB056049C85 /* HSBottomSheet-prefix.pch */,
-				555163B0D527EFD9DB80820BD28A1A23 /* HSBottomSheet-umbrella.h */,
-				8A4C55103EC9C669BB6BD24672790201 /* HSBottomSheet.debug.xcconfig */,
-				1BE2D1062798122D31300AA7A639B4F5 /* HSBottomSheet.release.xcconfig */,
+				4B342DC90DF53A607266BF42196364D8 /* HSBottomSheet.modulemap */,
+				D0DF188C1067FA0403BCF99CC2693A6A /* HSBottomSheet-dummy.m */,
+				0C41E21FA317DB98154BC01368B422AF /* HSBottomSheet-Info.plist */,
+				D941F752D4ECF45A0F292824A68BD1F4 /* HSBottomSheet-prefix.pch */,
+				A96CE90675C5CC0238F83C2E58499309 /* HSBottomSheet-umbrella.h */,
+				CE62700F8C5377A7CCBEC975ED4B3933 /* HSBottomSheet.debug.xcconfig */,
+				87ACF627A212599BB122DB785B929237 /* HSBottomSheet.release.xcconfig */,
 			);
 			name = "Support Files";
 			path = "Example/Pods/Target Support Files/HSBottomSheet";
+			sourceTree = "<group>";
+		};
+		625CC1A132A55CEB53954AF8B21F8E84 /* HSBottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				8C6371903984A3D7BBB436D51CD01FF9 /* BottomSheet.storyboard */,
+				952F1A2177ABCD4054B02A58B70716FC /* BottomSheetViewController.swift */,
+				CED2C1889768A2E053AC3EB69F64DECB /* Pod */,
+				5A6B6038CBFB0025CC37DC23BB8EEE20 /* Support Files */,
+			);
+			name = HSBottomSheet;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		AC27C2323740E49FE525505FA55422B1 /* Pods-HSBottomSheet_Example */ = {
@@ -188,11 +188,21 @@
 			path = "Target Support Files/Pods-HSBottomSheet_Example";
 			sourceTree = "<group>";
 		};
+		CED2C1889768A2E053AC3EB69F64DECB /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				7BD3F71D3008355D944E434CF7FE8BE2 /* HSBottomSheet.podspec */,
+				10610B4FA735FAAE50C43ECC69795999 /* LICENSE */,
+				BADC31096A23E168A9A62FD8A3812E7A /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				2E1D258B2300669286B03FFF7D1C7294 /* Development Pods */,
+				1F7343426A1AD64FE5E0F31A573C94E3 /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				0467C2A389FB78C634361084B6E803DB /* Products */,
 				CFA8A31FB3904474B05BED359B4E1ABB /* Targets Support Files */,
@@ -216,16 +226,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EEB2AD5ED82173E126913DBBFFF0FD0C /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				6728080126E23A3C4485A3DA349E4296 /* HSBottomSheet.podspec */,
-				246D715AEB5C1FC78C09B12C747A7444 /* LICENSE */,
-				D6CA87C2A6E6695CDCF4C4E2B91AC6C9 /* README.md */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -237,19 +237,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3636886CED8CA9307C0F064D36FFDF2C /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B85110476094267C974046B7C10B613B /* HSBottomSheet-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3A9B58EE7948F1DAA31B8F8027D2104A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F2D421089A45FA990E28289921CEA74A /* Pods-HSBottomSheet_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA293C6F696CB7177985B9A700B9D4DD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				572A7CD8C84F0B78A5B2D608696667A0 /* HSBottomSheet-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +268,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				D9A128DE3AA5733CA3B20D5DBC1E89DC /* PBXTargetDependency */,
+				B0CA71ACF171940C74A6570AC0DF2C39 /* PBXTargetDependency */,
 			);
 			name = "Pods-HSBottomSheet_Example";
 			productName = "Pods-HSBottomSheet_Example";
@@ -287,7 +287,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				E2E3A620F6E3451C0E3A2789B48514C4 /* PBXTargetDependency */,
+				A7B25C104443203EBC36292868488A8A /* PBXTargetDependency */,
 			);
 			name = "Pods-HSBottomSheet_Tests";
 			productName = "Pods-HSBottomSheet_Tests";
@@ -296,12 +296,12 @@
 		};
 		CA57D41838DBF201113FC1399D85B44B /* HSBottomSheet */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 09BCDA40EA6066D9DBEF76DB198EA42B /* Build configuration list for PBXNativeTarget "HSBottomSheet" */;
+			buildConfigurationList = 64DC59DB4448D1E5916961A9480832D3 /* Build configuration list for PBXNativeTarget "HSBottomSheet" */;
 			buildPhases = (
-				3636886CED8CA9307C0F064D36FFDF2C /* Headers */,
-				F102D6C491C5CA4ACE4D9FF42471294E /* Sources */,
-				74CC2AD27DDA211942D820B470D55927 /* Frameworks */,
-				25C84D93A72DD922B5CF94CF4E9D5740 /* Resources */,
+				CA293C6F696CB7177985B9A700B9D4DD /* Headers */,
+				02040C77855E9D3D083A55C8B39A1B70 /* Sources */,
+				4F22A253427057F1206B590C47FF1474 /* Frameworks */,
+				AC2956AA887F370662E78B95F28A7784 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -320,11 +320,6 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
-				TargetAttributes = {
-					CA57D41838DBF201113FC1399D85B44B = {
-						LastSwiftMigration = 1250;
-					};
-				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -347,15 +342,14 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		25C84D93A72DD922B5CF94CF4E9D5740 /* Resources */ = {
+		69B262EA8083EC4E6EA1693EF0817DC9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7FF828526C3A58C00B87B5E /* BottomSheet.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		69B262EA8083EC4E6EA1693EF0817DC9 /* Resources */ = {
+		AC2956AA887F370662E78B95F28A7784 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -372,6 +366,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		02040C77855E9D3D083A55C8B39A1B70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8AC7B8DF16E70434A4B011211DC0163D /* BottomSheet.storyboard in Sources */,
+				A81622CDF6C39AB78697069B846147AD /* BottomSheetViewController.swift in Sources */,
+				2B24C53FDA9D3FE8EC055780AD079AC9 /* HSBottomSheet-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		05C3922E705B2A5769131E0AE53BF8B6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -388,29 +392,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F102D6C491C5CA4ACE4D9FF42471294E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E6CFBA1868D62C10EDB296A0262B6803 /* HSBottomSheet-dummy.m in Sources */,
-				F7FF828626C3A58C00B87B5E /* BottomSheetViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D9A128DE3AA5733CA3B20D5DBC1E89DC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = HSBottomSheet;
-			target = CA57D41838DBF201113FC1399D85B44B /* HSBottomSheet */;
-			targetProxy = 74C87F43E549161F5A32D22BD39C9AA5 /* PBXContainerItemProxy */;
-		};
-		E2E3A620F6E3451C0E3A2789B48514C4 /* PBXTargetDependency */ = {
+		A7B25C104443203EBC36292868488A8A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-HSBottomSheet_Example";
 			target = 56039FC2796B466EB1F979FFD33A1022 /* Pods-HSBottomSheet_Example */;
-			targetProxy = 6D1B1DD51A4E301F4921FC5A65D771FB /* PBXContainerItemProxy */;
+			targetProxy = 1664987E0287330C6D57616EFEE6D477 /* PBXContainerItemProxy */;
+		};
+		B0CA71ACF171940C74A6570AC0DF2C39 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = HSBottomSheet;
+			target = CA57D41838DBF201113FC1399D85B44B /* HSBottomSheet */;
+			targetProxy = 84397094E69A0AF178E57A4D8D2946A5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -513,70 +508,6 @@
 			};
 			name = Debug;
 		};
-		2AA02B63A8D1374CD1AF6F938332EDBA /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1BE2D1062798122D31300AA7A639B4F5 /* HSBottomSheet.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/HSBottomSheet/HSBottomSheet-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/HSBottomSheet/HSBottomSheet-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/HSBottomSheet/HSBottomSheet.modulemap";
-				PRODUCT_MODULE_NAME = HSBottomSheet;
-				PRODUCT_NAME = HSBottomSheet;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		55648120D17837820866C2FC0F59C086 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8A4C55103EC9C669BB6BD24672790201 /* HSBottomSheet.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/HSBottomSheet/HSBottomSheet-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/HSBottomSheet/HSBottomSheet-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/HSBottomSheet/HSBottomSheet.modulemap";
-				PRODUCT_MODULE_NAME = HSBottomSheet;
-				PRODUCT_NAME = HSBottomSheet;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		64E803AFDFD7ABC40F1B857DCC5470DC /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13A21D4A763B0DA88FE4E8EC592EEFA2 /* Pods-HSBottomSheet_Tests.release.xcconfig */;
@@ -603,6 +534,37 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6C5850D043F0B8312C850D6EA6AE3C34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87ACF627A212599BB122DB785B929237 /* HSBottomSheet.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/HSBottomSheet/HSBottomSheet-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HSBottomSheet/HSBottomSheet-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/HSBottomSheet/HSBottomSheet.modulemap";
+				PRODUCT_MODULE_NAME = HSBottomSheet;
+				PRODUCT_NAME = HSBottomSheet;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -698,11 +660,42 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
+		};
+		D2AA2CABBD345D141BAC9F3D5E74A64B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE62700F8C5377A7CCBEC975ED4B3933 /* HSBottomSheet.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/HSBottomSheet/HSBottomSheet-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HSBottomSheet/HSBottomSheet-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/HSBottomSheet/HSBottomSheet.modulemap";
+				PRODUCT_MODULE_NAME = HSBottomSheet;
+				PRODUCT_NAME = HSBottomSheet;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		F79FF82B5B60D9F963C7BEFEA5CAE22C /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -739,15 +732,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		09BCDA40EA6066D9DBEF76DB198EA42B /* Build configuration list for PBXNativeTarget "HSBottomSheet" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				55648120D17837820866C2FC0F59C086 /* Debug */,
-				2AA02B63A8D1374CD1AF6F938332EDBA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		1E4FF90C243E32F11588DD9AAF086A37 /* Build configuration list for PBXNativeTarget "Pods-HSBottomSheet_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -762,6 +746,15 @@
 			buildConfigurations = (
 				25AD9454612BF454A1E3DC4CD4FA8C6D /* Debug */,
 				CA547D2C7E9A8A153DC2B27FBE00B112 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		64DC59DB4448D1E5916961A9480832D3 /* Build configuration list for PBXNativeTarget "HSBottomSheet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2AA2CABBD345D141BAC9F3D5E74A64B /* Debug */,
+				6C5850D043F0B8312C850D6EA6AE3C34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
