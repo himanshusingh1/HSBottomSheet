@@ -1,0 +1,6 @@
+framework module HSBottomSheet {
+  umbrella header "HSBottomSheet-umbrella.h"
+
+  export *
+  module * { export * }
+}
