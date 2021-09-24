@@ -10,7 +10,7 @@ import UIKit
 
 public extension UIViewController {
     func showBottomSheet(edges: UIEdgeInsets? = nil, masterViewController: UIViewController, cornerRadius: CGFloat? = nil) {
-        let bottomSheetVC = BottomSheetViewController.`init`(masterViewController: masterViewController)
+        let bottomSheetVC = BottomSheetViewController.`init`(edges: edges, masterViewController: masterViewController, cornerRadius: cornerRadius) 
         self.present(bottomSheetVC, animated: true, completion: nil)
     }
 }
