@@ -7,18 +7,43 @@
 
 import UIKit
 
+private var overlayWindow: [UIWindow] = []
 
-public extension UIViewController {
-    func showBottomSheet(edges: UIEdgeInsets? = nil, masterViewController: UIViewController, cornerRadius: CGFloat? = nil) {
-        let bottomSheetVC = BottomSheetViewController.`init`(edges: edges, masterViewController: masterViewController, cornerRadius: cornerRadius) 
-        self.present(bottomSheetVC, animated: true, completion: nil)
+public struct HSBottomSheet {
+    public static func dismiss(vc: UIViewController) {
+        if let window = overlayWindow.first(where: { savedwindow in
+            return (savedwindow.rootViewController as? BottomSheetViewController)?.contentViewController === vc
+        }) {
+            window.resignKey()
+            window.removeFromSuperview()
+            overlayWindow.removeAll { savedWindow in
+                savedWindow === window
+            }
+            overlayWindow.last?.makeKeyAndVisible()
+        }
+        
+    }
+    public static func show(edges: UIEdgeInsets? = nil, masterViewController: UIViewController, cornerRadius: CGFloat? = nil) {
+        let bottomSheetVC = BottomSheetViewController.`init`(edges: edges, masterViewController: masterViewController, cornerRadius: cornerRadius)
+        let newWindow: UIWindow!
+        if let currentWindowScene = UIApplication.shared.connectedScenes.first as?  UIWindowScene {
+            newWindow = UIWindow(windowScene: currentWindowScene)
+        } else {
+            newWindow = UIWindow(frame: UIScreen.main.bounds)
+        }
+        newWindow.windowLevel = UIWindow.Level.alert
+        newWindow.backgroundColor = .clear
+        newWindow.rootViewController = bottomSheetVC
+        newWindow.makeKeyAndVisible()
+        overlayWindow.append(newWindow)
     }
 }
 
 class BottomSheetViewController: UIViewController , UIGestureRecognizerDelegate{
     
     class func `init`(edges: UIEdgeInsets? = nil, masterViewController: UIViewController, cornerRadius: CGFloat? = nil) -> BottomSheetViewController {
-        let vc = UIStoryboard(name: "BottomSheet", bundle: Bundle.init(identifier: "org.cocoapods.HSBottomSheet")).instantiateViewController(withIdentifier: "BottomSheetViewController") as! BottomSheetViewController
+        let bundle = Bundle.init(identifier: "org.cocoapods.HSBottomSheet")
+        let vc = UIStoryboard(name: "BottomSheet", bundle: bundle).instantiateViewController(withIdentifier: "BottomSheetViewController") as! BottomSheetViewController
         vc.contentViewController = masterViewController
         vc.cornerRadius = cornerRadius ?? 5
         vc.modalPresentationStyle = .overFullScreen
@@ -27,7 +52,7 @@ class BottomSheetViewController: UIViewController , UIGestureRecognizerDelegate{
     }
     
     @IBOutlet weak var visualView: UIVisualEffectView!
-    private weak var contentViewController: UIViewController!
+    fileprivate weak var contentViewController: UIViewController!
     @IBOutlet weak var panGesture: UIPanGestureRecognizer!
     
     private var cornerRadius: CGFloat!
@@ -43,38 +68,24 @@ class BottomSheetViewController: UIViewController , UIGestureRecognizerDelegate{
         self.view.addSubview(self.contentViewController.view)
         self.contentViewController.didMove(toParent: self)
         addAutoLayout()
-        
-        swizzleDissmiss()
-        
-        
-        
     }
-    private func swizzleDissmiss() {
-        let instance: UIViewController = self.contentViewController
-        let aClass: AnyClass! = object_getClass(instance)
-        let originalMethod = class_getInstanceMethod(aClass, #selector(dismiss(animated:completion:)))
-        
-        let swizzledMethod = class_getInstanceMethod(aClass, #selector(self.dismiss(animated:completion:)))
-        if let originalMethod = originalMethod, let swizzledMethod = swizzledMethod {
-            method_exchangeImplementations(originalMethod, swizzledMethod)
-        }
-    }
+    
     private func addAutoLayout() {
         contentViewController.view.translatesAutoresizingMaskIntoConstraints = false
-
+        
         let leadingLayout = NSLayoutConstraint(item: self.contentViewController.view!, attribute: .leading, relatedBy: .equal, toItem: self.visualView, attribute: .leading, multiplier: 1, constant: self.edgeInsets.left)
         leadingLayout.isActive = true
-
+        
         let trailingLayout = NSLayoutConstraint(item: self.contentViewController.view!, attribute: .trailing, relatedBy: .equal, toItem: self.visualView, attribute: .trailing, multiplier: 1, constant: -1 * self.edgeInsets.right)
         trailingLayout.isActive = true
-
+        
         let topLayout = NSLayoutConstraint(item: self.contentViewController.view!, attribute: .top, relatedBy: .greaterThanOrEqual, toItem: self.visualView, attribute: .top, multiplier: 1, constant: self.edgeInsets.top)
         topLayout.priority = UILayoutPriority(rawValue: 1)
         topLayout.isActive = true
-
+        
         let bottomLayout = NSLayoutConstraint(item: self.contentViewController.view!, attribute: .bottom, relatedBy: .equal, toItem: self.visualView, attribute: .bottom, multiplier: 1, constant: -1 * self.edgeInsets.bottom)
         bottomLayout.isActive = true
-
+        
         self.contentViewController.view.clipsToBounds = true
         self.contentViewController.view.layer.cornerRadius = cornerRadius
     }
@@ -106,7 +117,7 @@ class BottomSheetViewController: UIViewController , UIGestureRecognizerDelegate{
                 }, completion: { [weak self] (isCompleted) in
                     guard let self = self else { return }
                     if isCompleted {
-                        self.dismiss(animated: false, completion: nil)
+                        HSBottomSheet.dismiss(vc: self.contentViewController)
                     }
                 })
             } else {
@@ -120,3 +131,4 @@ class BottomSheetViewController: UIViewController , UIGestureRecognizerDelegate{
     }
     
 }
+
