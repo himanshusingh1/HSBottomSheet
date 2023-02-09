@@ -8,26 +8,81 @@
 import UIKit
 
 private var overlayWindow: [UIWindow] = []
-
+class HSNavigationController: UINavigationController {
+    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        super.pushViewController(viewController, animated: animated)
+    }
+    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        HSBottomSheet.dismiss(vc: self)
+    }
+}
 public struct HSBottomSheet {
+    public static func dismissAll() {
+        overlayWindow.forEach { window in
+            window.resignKey()
+            window.removeFromSuperview()
+        }
+        UIApplication.shared.delegate?.window??.makeKeyAndVisible()
+    }
     public static func dismiss(vc: UIViewController) {
+        
+        func removeWindow(window: UIWindow) {
+            UIView.animate(withDuration: 0.3) {
+                window.frame = window.frame.offsetBy(dx: 0, dy: UIScreen.main.bounds.maxY)
+            } completion: { _ in
+                window.resignKey()
+                window.removeFromSuperview()
+                overlayWindow.removeAll { savedWindow in
+                    savedWindow === window
+                }
+                overlayWindow.last?.makeKeyAndVisible()
+            }
+        }
+        
         if let window = overlayWindow.first(where: { savedwindow in
             return (savedwindow.rootViewController as? BottomSheetViewController)?.contentViewController === vc
         }) {
-            window.resignKey()
-            window.removeFromSuperview()
-            overlayWindow.removeAll { savedWindow in
-                savedWindow === window
+            removeWindow(window: window)
+        } else if let window = overlayWindow.first(where: { window in
+            window.rootViewController === vc
+        }) {
+            removeWindow(window: window)
+        }
+    }
+    
+    public static func push(viewController: UIViewController) {
+        let nav = HSNavigationController(rootViewController: viewController)
+        let newWindow: UIWindow!
+        if #available(iOS 13.0, *) {
+            if let currentWindowScene = UIApplication.shared.connectedScenes.first as?  UIWindowScene {
+                newWindow = UIWindow(windowScene: currentWindowScene)
+            } else {
+                newWindow = UIWindow(frame: UIScreen.main.bounds)
             }
-            overlayWindow.last?.makeKeyAndVisible()
+        } else {
+            newWindow = UIWindow(frame: UIScreen.main.bounds)
+        }
+        newWindow.windowLevel = UIWindow.Level.alert
+        newWindow.backgroundColor = .clear
+        newWindow.rootViewController = nav
+        newWindow.makeKeyAndVisible()
+        overlayWindow.append(newWindow)
+        newWindow.frame = newWindow.frame.offsetBy(dx: UIScreen.main.bounds.maxX, dy: 0)
+        UIView.animate(withDuration: 0.3) {
+            newWindow.frame = UIScreen.main.bounds
         }
         
     }
+    
     public static func show(edges: UIEdgeInsets? = nil, masterViewController: UIViewController, cornerRadius: CGFloat? = nil) {
         let bottomSheetVC = BottomSheetViewController.`init`(edges: edges, masterViewController: masterViewController, cornerRadius: cornerRadius)
         let newWindow: UIWindow!
-        if let currentWindowScene = UIApplication.shared.connectedScenes.first as?  UIWindowScene {
-            newWindow = UIWindow(windowScene: currentWindowScene)
+        if #available(iOS 13.0, *) {
+            if let currentWindowScene = UIApplication.shared.connectedScenes.first as?  UIWindowScene {
+                newWindow = UIWindow(windowScene: currentWindowScene)
+            } else {
+                newWindow = UIWindow(frame: UIScreen.main.bounds)
+            }
         } else {
             newWindow = UIWindow(frame: UIScreen.main.bounds)
         }
@@ -36,6 +91,10 @@ public struct HSBottomSheet {
         newWindow.rootViewController = bottomSheetVC
         newWindow.makeKeyAndVisible()
         overlayWindow.append(newWindow)
+        newWindow.frame = newWindow.frame.offsetBy(dx: 0, dy: UIScreen.main.bounds.maxY)
+        UIView.animate(withDuration: 0.3) {
+            newWindow.frame = UIScreen.main.bounds
+        }
     }
 }
 
@@ -52,17 +111,17 @@ class BottomSheetViewController: UIViewController , UIGestureRecognizerDelegate{
     }
     
     @IBOutlet weak var visualView: UIVisualEffectView!
-    fileprivate weak var contentViewController: UIViewController!
+    fileprivate var contentViewController: UIViewController!
     @IBOutlet weak var panGesture: UIPanGestureRecognizer!
     
     private var cornerRadius: CGFloat!
     private var edgeInsets: UIEdgeInsets!
     private var originalPosition: CGPoint?
     private var currentPositionTouched: CGPoint?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .black.withAlphaComponent(0.01)
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.01)
         self.contentViewController.willMove(toParent: self)
         addChild(self.contentViewController)
         self.view.addSubview(self.contentViewController.view)
