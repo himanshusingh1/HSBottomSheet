@@ -22,6 +22,7 @@ public struct HSBottomSheet {
             window.resignKey()
             window.removeFromSuperview()
         }
+        overlayWindow.removeAll()
         UIApplication.shared.delegate?.window??.makeKeyAndVisible()
     }
     public static func dismiss(vc: UIViewController) {
