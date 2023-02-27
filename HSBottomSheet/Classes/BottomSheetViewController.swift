@@ -75,8 +75,8 @@ public struct HSBottomSheet {
         
     }
     
-    public static func show(edges: UIEdgeInsets? = nil, masterViewController: UIViewController, cornerRadius: CGFloat? = nil) {
-        let bottomSheetVC = BottomSheetViewController.`init`(edges: edges, masterViewController: masterViewController, cornerRadius: cornerRadius)
+    public static func show(edges: UIEdgeInsets? = nil, masterViewController: UIViewController, cornerRadius: CGFloat? = nil, canDissmiss: Bool = true) {
+        let bottomSheetVC = BottomSheetViewController.`init`(edges: edges, masterViewController: masterViewController, cornerRadius: cornerRadius, canDissmiss: canDissmiss)
         let newWindow: UIWindow!
         if #available(iOS 13.0, *) {
             if let currentWindowScene = UIApplication.shared.connectedScenes.first as?  UIWindowScene {
@@ -101,11 +101,12 @@ public struct HSBottomSheet {
 
 class BottomSheetViewController: UIViewController , UIGestureRecognizerDelegate{
     
-    class func `init`(edges: UIEdgeInsets? = nil, masterViewController: UIViewController, cornerRadius: CGFloat? = nil) -> BottomSheetViewController {
+    class func `init`(edges: UIEdgeInsets? = nil, masterViewController: UIViewController, cornerRadius: CGFloat? = nil, canDissmiss: Bool) -> BottomSheetViewController {
         let bundle = Bundle.init(identifier: "org.cocoapods.HSBottomSheet")
         let vc = UIStoryboard(name: "BottomSheet", bundle: bundle).instantiateViewController(withIdentifier: "BottomSheetViewController") as! BottomSheetViewController
         vc.contentViewController = masterViewController
         vc.cornerRadius = cornerRadius ?? 5
+        vc.canDissmiss = canDissmiss
         vc.modalPresentationStyle = .overFullScreen
         vc.edgeInsets = edges ?? UIEdgeInsets(top: 22, left: 16, bottom: 16, right: 16)
         return vc
@@ -114,7 +115,7 @@ class BottomSheetViewController: UIViewController , UIGestureRecognizerDelegate{
     @IBOutlet weak var visualView: UIVisualEffectView!
     fileprivate var contentViewController: UIViewController!
     @IBOutlet weak var panGesture: UIPanGestureRecognizer!
-    
+    private var canDissmiss: Bool! = true
     private var cornerRadius: CGFloat!
     private var edgeInsets: UIEdgeInsets!
     private var originalPosition: CGPoint?
@@ -176,7 +177,7 @@ class BottomSheetViewController: UIViewController , UIGestureRecognizerDelegate{
                     )
                 }, completion: { [weak self] (isCompleted) in
                     guard let self = self else { return }
-                    if isCompleted {
+                    if isCompleted && self.canDissmiss {
                         HSBottomSheet.dismiss(vc: self.contentViewController)
                     }
                 })
@@ -191,4 +192,5 @@ class BottomSheetViewController: UIViewController , UIGestureRecognizerDelegate{
     }
     
 }
+
 
