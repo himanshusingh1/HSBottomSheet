@@ -17,6 +17,7 @@ class HSNavigationController: UINavigationController {
     }
 }
 public struct HSBottomSheet {
+    public typealias dismissButtonConfiguration = ((UIButton) -> Void)
     public static func dismissAll() {
         overlayWindow.forEach { window in
             window.resignKey()
@@ -75,8 +76,9 @@ public struct HSBottomSheet {
         
     }
     
-    public static func show(edges: UIEdgeInsets? = nil, masterViewController: UIViewController, cornerRadius: CGFloat? = nil, canDissmiss: Bool = true) {
-        let bottomSheetVC = BottomSheetViewController.`init`(edges: edges, masterViewController: masterViewController, cornerRadius: cornerRadius, canDissmiss: canDissmiss)
+    public static func show(edges: UIEdgeInsets? = nil, masterViewController: UIViewController, cornerRadius: CGFloat? = nil, canDissmiss: Bool = true,dismissButtonConfig: dismissButtonConfiguration? = nil) {
+        
+        let bottomSheetVC = BottomSheetViewController.`init`(edges: edges, masterViewController: masterViewController, cornerRadius: cornerRadius, canDissmiss: canDissmiss,dissMissButton: dismissButtonConfig)
         let newWindow: UIWindow!
         if #available(iOS 13.0, *) {
             if let currentWindowScene = UIApplication.shared.connectedScenes.first as?  UIWindowScene {
@@ -101,7 +103,7 @@ public struct HSBottomSheet {
 
 class BottomSheetViewController: UIViewController , UIGestureRecognizerDelegate{
     
-    class func `init`(edges: UIEdgeInsets? = nil, masterViewController: UIViewController, cornerRadius: CGFloat? = nil, canDissmiss: Bool) -> BottomSheetViewController {
+    class func `init`(edges: UIEdgeInsets? = nil, masterViewController: UIViewController, cornerRadius: CGFloat? = nil, canDissmiss: Bool,dissMissButton: HSBottomSheet.dismissButtonConfiguration? ) -> BottomSheetViewController {
         let bundle = Bundle.init(identifier: "org.cocoapods.HSBottomSheet")
         let vc = UIStoryboard(name: "BottomSheet", bundle: bundle).instantiateViewController(withIdentifier: "BottomSheetViewController") as! BottomSheetViewController
         vc.contentViewController = masterViewController
@@ -109,8 +111,10 @@ class BottomSheetViewController: UIViewController , UIGestureRecognizerDelegate{
         vc.canDissmiss = canDissmiss
         vc.modalPresentationStyle = .overFullScreen
         vc.edgeInsets = edges ?? UIEdgeInsets(top: 22, left: 16, bottom: 16, right: 16)
+        vc.dismissButtonConfig = dissMissButton
         return vc
     }
+    private var dismissButtonConfig: HSBottomSheet.dismissButtonConfiguration?
     
     @IBOutlet weak var visualView: UIVisualEffectView!
     fileprivate var contentViewController: UIViewController!
@@ -120,7 +124,17 @@ class BottomSheetViewController: UIViewController , UIGestureRecognizerDelegate{
     private var edgeInsets: UIEdgeInsets!
     private var originalPosition: CGPoint?
     private var currentPositionTouched: CGPoint?
-
+    
+    lazy private var dissmissButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.addTarget(self, action: #selector(didtapOnDismissButton), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc private func didtapOnDismissButton() {
+        HSBottomSheet.dismiss(vc: self.contentViewController)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.01)
@@ -129,8 +143,18 @@ class BottomSheetViewController: UIViewController , UIGestureRecognizerDelegate{
         self.view.addSubview(self.contentViewController.view)
         self.contentViewController.didMove(toParent: self)
         addAutoLayout()
+        startObservingSubviewFrames()
+        
+        if let config = self.dismissButtonConfig {
+            config(dissmissButton)
+        } else {
+            dissmissButton.isHidden = true
+        }
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        changeDissmissButtonPosition()
+    }
     private func addAutoLayout() {
         contentViewController.view.translatesAutoresizingMaskIntoConstraints = false
         
@@ -192,5 +216,25 @@ class BottomSheetViewController: UIViewController , UIGestureRecognizerDelegate{
     }
     
 }
-
+extension BottomSheetViewController {
+    
+    func changeDissmissButtonPosition() {
+        self.view.addSubview(dissmissButton)
+        dissmissButton.layer.cornerRadius = 25
+        dissmissButton.clipsToBounds = true
+        dissmissButton.frame = .init(x: self.view.frame.width/2 - 25, y: self.contentViewController.view.frame.minY - (50 + 16), width: 50, height: 50)
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        changeDissmissButtonPosition()
+    }
+    func stopObservingSubviewFrames() {
+        self.view.removeObserver(self, forKeyPath: "frame")
+        self.contentViewController.view.removeObserver(self, forKeyPath: "frame")
+    }
+    func startObservingSubviewFrames() {
+        self.view.addObserver(self, forKeyPath: "frame", options: [.new, .old], context: nil)
+        self.contentViewController.view.addObserver(self, forKeyPath: "frame", options: [.new, .old], context: nil)
+    }
+}
 
