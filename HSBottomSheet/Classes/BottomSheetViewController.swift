@@ -49,6 +49,16 @@ public struct HSBottomSheet {
             window.rootViewController === vc
         }) {
             removeWindow(window: window)
+        } else if let window = overlayWindow.first(where: { window in
+            if let rootVC = window.rootViewController as? HSNavigationController {
+                let contains = rootVC.viewControllers.contains { viewcon in
+                    viewcon === vc
+                }
+                return contains
+            }
+            return false
+        }){
+           removeWindow(window: window)
         }
     }
     
