@@ -88,7 +88,7 @@ public struct HSBottomSheet {
     
     public static func show(edges: UIEdgeInsets? = nil, masterViewController: UIViewController, cornerRadius: CGFloat? = nil, canDissmiss: Bool = true,dismissButtonConfig: dismissButtonConfiguration? = nil,didDissMiss:( () -> Void )? = nil) {
         
-        let bottomSheetVC = BottomSheetViewController.`init`(edges: edges, masterViewController: masterViewController, cornerRadius: cornerRadius, canDissmiss: canDissmiss,dissMissButton: dismissButtonConfig)
+        let bottomSheetVC = BottomSheetViewController.`init`(edges: edges, masterViewController: masterViewController, cornerRadius: cornerRadius, canDissmiss: canDissmiss,dissMissButton: dismissButtonConfig, didDissMiss: didDissMiss)
         let newWindow: UIWindow!
         if #available(iOS 13.0, *) {
             if let currentWindowScene = UIApplication.shared.connectedScenes.first as?  UIWindowScene {
