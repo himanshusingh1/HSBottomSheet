@@ -86,7 +86,7 @@ public struct HSBottomSheet {
         
     }
     
-    public static func show(edges: UIEdgeInsets? = nil, masterViewController: UIViewController, cornerRadius: CGFloat? = nil, canDissmiss: Bool = true,dismissButtonConfig: dismissButtonConfiguration? = nil) {
+    public static func show(edges: UIEdgeInsets? = nil, masterViewController: UIViewController, cornerRadius: CGFloat? = nil, canDissmiss: Bool = true,dismissButtonConfig: dismissButtonConfiguration? = nil,didDissMiss:( () -> Void )? = nil) {
         
         let bottomSheetVC = BottomSheetViewController.`init`(edges: edges, masterViewController: masterViewController, cornerRadius: cornerRadius, canDissmiss: canDissmiss,dissMissButton: dismissButtonConfig)
         let newWindow: UIWindow!
@@ -112,8 +112,11 @@ public struct HSBottomSheet {
 }
 
 class BottomSheetViewController: UIViewController , UIGestureRecognizerDelegate{
-    
-    class func `init`(edges: UIEdgeInsets? = nil, masterViewController: UIViewController, cornerRadius: CGFloat? = nil, canDissmiss: Bool,dissMissButton: HSBottomSheet.dismissButtonConfiguration? ) -> BottomSheetViewController {
+    deinit {
+        didDissMiss?()
+    }
+    var didDissMiss:( () -> Void )?
+    class func `init`(edges: UIEdgeInsets? = nil, masterViewController: UIViewController, cornerRadius: CGFloat? = nil, canDissmiss: Bool,dissMissButton: HSBottomSheet.dismissButtonConfiguration?, didDissMiss: (() -> Void)? ) -> BottomSheetViewController {
         let bundle = Bundle.init(identifier: "org.cocoapods.HSBottomSheet")
         let vc = UIStoryboard(name: "BottomSheet", bundle: bundle).instantiateViewController(withIdentifier: "BottomSheetViewController") as! BottomSheetViewController
         vc.contentViewController = masterViewController
@@ -121,6 +124,7 @@ class BottomSheetViewController: UIViewController , UIGestureRecognizerDelegate{
         vc.canDissmiss = canDissmiss
         vc.modalPresentationStyle = .overFullScreen
         vc.edgeInsets = edges ?? UIEdgeInsets(top: 22, left: 16, bottom: 16, right: 16)
+        vc.didDissMiss = didDissMiss
         vc.dismissButtonConfig = dissMissButton
         return vc
     }
