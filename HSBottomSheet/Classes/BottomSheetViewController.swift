@@ -153,17 +153,25 @@ class BottomSheetViewController: UIViewController , UIGestureRecognizerDelegate{
         self.view.addSubview(self.contentViewController.view)
         self.contentViewController.didMove(toParent: self)
         addAutoLayout()
-        startObservingSubviewFrames()
-        
         if let config = self.dismissButtonConfig {
             config(dissmissButton)
         } else {
             dissmissButton.isHidden = true
         }
+        dissmissButton.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(dissmissButton)
+        dissmissButton.layer.cornerRadius = 25
+        dissmissButton.clipsToBounds = true
+        NSLayoutConstraint.activate([
+            dissmissButton.heightAnchor.constraint(equalToConstant: 50),
+            dissmissButton.widthAnchor.constraint(equalToConstant: 50),
+            dissmissButton.bottomAnchor.constraint(equalTo: self.contentViewController.view.topAnchor,constant: -16),
+            dissmissButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+        ])
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        changeDissmissButtonPosition()
+        
     }
     private func addAutoLayout() {
         contentViewController.view.translatesAutoresizingMaskIntoConstraints = false
@@ -214,6 +222,11 @@ class BottomSheetViewController: UIViewController , UIGestureRecognizerDelegate{
                     if isCompleted && self.canDissmiss {
                         HSBottomSheet.dismiss(vc: self.contentViewController)
                     }
+                    UIView.animate(withDuration: 0.2, animations: {  [weak self] in
+                        guard let self = self else { return }
+                        self.visualView.alpha = 0.7
+                        self.view.center = self.originalPosition!
+                    })
                 })
             } else {
                 UIView.animate(withDuration: 0.2, animations: {  [weak self] in
@@ -226,25 +239,3 @@ class BottomSheetViewController: UIViewController , UIGestureRecognizerDelegate{
     }
     
 }
-extension BottomSheetViewController {
-    
-    func changeDissmissButtonPosition() {
-        self.view.addSubview(dissmissButton)
-        dissmissButton.layer.cornerRadius = 25
-        dissmissButton.clipsToBounds = true
-        dissmissButton.frame = .init(x: self.view.frame.width/2 - 25, y: self.contentViewController.view.frame.minY - (50 + 16), width: 50, height: 50)
-    }
-    
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        changeDissmissButtonPosition()
-    }
-    func stopObservingSubviewFrames() {
-        self.view.removeObserver(self, forKeyPath: "frame")
-        self.contentViewController.view.removeObserver(self, forKeyPath: "frame")
-    }
-    func startObservingSubviewFrames() {
-        self.view.addObserver(self, forKeyPath: "frame", options: [.new, .old], context: nil)
-        self.contentViewController.view.addObserver(self, forKeyPath: "frame", options: [.new, .old], context: nil)
-    }
-}
-
