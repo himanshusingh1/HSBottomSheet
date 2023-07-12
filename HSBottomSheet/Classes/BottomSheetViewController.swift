@@ -120,10 +120,10 @@ class BottomSheetViewController: UIViewController , UIGestureRecognizerDelegate{
         let bundle = Bundle.init(identifier: "org.cocoapods.HSBottomSheet")
         let vc = UIStoryboard(name: "BottomSheet", bundle: bundle).instantiateViewController(withIdentifier: "BottomSheetViewController") as! BottomSheetViewController
         vc.contentViewController = masterViewController
-        vc.cornerRadius = cornerRadius ?? 5
+        vc.cornerRadius = cornerRadius ?? 20
         vc.canDissmiss = canDissmiss
         vc.modalPresentationStyle = .overFullScreen
-        vc.edgeInsets = edges ?? UIEdgeInsets(top: 22, left: 16, bottom: 16, right: 16)
+        vc.edgeInsets = edges ?? UIEdgeInsets(top: 22, left: 0, bottom: 0, right: 0)
         vc.didDissMiss = didDissMiss
         vc.dismissButtonConfig = dissMissButton
         return vc
@@ -186,12 +186,10 @@ class BottomSheetViewController: UIViewController , UIGestureRecognizerDelegate{
         let trailingLayout = NSLayoutConstraint(item: self.contentViewController.view!, attribute: .trailing, relatedBy: .equal, toItem: self.visualView, attribute: .trailing, multiplier: 1, constant: -1 * self.edgeInsets.right)
         trailingLayout.isActive = true
         
-        let topLayout = NSLayoutConstraint(item: self.contentViewController.view!, attribute: .top, relatedBy: .greaterThanOrEqual, toItem: self.visualView, attribute: .top, multiplier: 1, constant: self.edgeInsets.top)
-        topLayout.priority = UILayoutPriority(rawValue: 1)
-        topLayout.isActive = true
+
+        self.contentViewController.view.topAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.topAnchor, constant: self.edgeInsets.top + 58).isActive = true
         
-        let bottomLayout = NSLayoutConstraint(item: self.contentViewController.view!, attribute: .bottom, relatedBy: .equal, toItem: self.visualView, attribute: .bottom, multiplier: 1, constant: -1 * self.edgeInsets.bottom)
-        bottomLayout.isActive = true
+        self.contentViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: self.edgeInsets.bottom).isActive = true
         
         self.contentViewController.view.clipsToBounds = true
         self.contentViewController.view.layer.cornerRadius = cornerRadius

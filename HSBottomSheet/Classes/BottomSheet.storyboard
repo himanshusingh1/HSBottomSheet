@@ -18,9 +18,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ol7-li-90K">
-                                <rect key="frame" x="0.0" y="-1200" width="414" height="2096"/>
+                                <rect key="frame" x="0.0" y="-1152" width="414" height="2048"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="DzL-m5-c6S">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="2096"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="2048"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <gestureRecognizers/>
                                     <connections>
@@ -30,14 +30,24 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <blurEffect style="light"/>
                             </visualEffectView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A0X-YD-WwJ">
+                                <rect key="frame" x="0.0" y="848" width="414" height="48"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="a7x-jS-cB5"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="A0X-YD-WwJ" secondAttribute="trailing" id="0jb-W3-vRK"/>
+                            <constraint firstAttribute="bottom" secondItem="A0X-YD-WwJ" secondAttribute="bottom" id="6sx-83-FTE"/>
+                            <constraint firstItem="A0X-YD-WwJ" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="AMk-f1-Xjt"/>
                             <constraint firstAttribute="bottom" secondItem="ol7-li-90K" secondAttribute="bottom" id="Hlf-Oi-ZcH"/>
                             <constraint firstItem="ol7-li-90K" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="Uk5-9w-DKn"/>
                             <constraint firstAttribute="trailing" secondItem="ol7-li-90K" secondAttribute="trailing" id="pMb-xl-usu"/>
-                            <constraint firstItem="ol7-li-90K" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="-1200" id="qHY-Tj-pC6"/>
+                            <constraint firstItem="ol7-li-90K" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="-1200" id="qHY-Tj-pC6"/>
                         </constraints>
                     </view>
                     <connections>
