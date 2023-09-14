@@ -20,8 +20,8 @@ public struct HSBottomSheet {
     public typealias dismissButtonConfiguration = ((UIButton) -> Void)
     public static func dismissAll() {
         overlayWindow.forEach { window in
-            window.resignKey()
             window.removeFromSuperview()
+            window.resignKey()
         }
         overlayWindow.removeAll()
         UIApplication.shared.delegate?.window??.makeKeyAndVisible()
@@ -32,8 +32,8 @@ public struct HSBottomSheet {
             UIView.animate(withDuration: 0.3) {
                 window.frame = window.frame.offsetBy(dx: 0, dy: UIScreen.main.bounds.maxY)
             } completion: { _ in
-                window.resignKey()
                 window.removeFromSuperview()
+                window.resignKey()
                 overlayWindow.removeAll { savedWindow in
                     savedWindow === window
                 }
@@ -206,7 +206,7 @@ class BottomSheetViewController: UIViewController , UIGestureRecognizerDelegate{
         } else if panGesture.state == .changed {
             view.frame.origin = CGPoint(
                 x: view.frame.minX,
-                y: max(0, translation.y)
+                y: translation.y
             )
             self.visualView.alpha = max(0.7, CGFloat( 0.7 - Double(translation.y / self.view.frame.height) ))
         } else if panGesture.state == .ended {
