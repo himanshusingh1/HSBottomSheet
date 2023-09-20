@@ -32,12 +32,12 @@ public struct HSBottomSheet {
             UIView.animate(withDuration: 0.3) {
                 window.frame = window.frame.offsetBy(dx: 0, dy: UIScreen.main.bounds.maxY)
             } completion: { _ in
+                overlayWindow.last?.makeKeyAndVisible()
                 window.removeFromSuperview()
                 window.resignKey()
                 overlayWindow.removeAll { savedWindow in
                     savedWindow === window
                 }
-                overlayWindow.last?.makeKeyAndVisible()
             }
         }
         
@@ -112,9 +112,7 @@ public struct HSBottomSheet {
 }
 
 class BottomSheetViewController: UIViewController , UIGestureRecognizerDelegate{
-    deinit {
-        didDissMiss?()
-    }
+   
     var didDissMiss:( () -> Void )?
     class func `init`(edges: UIEdgeInsets? = nil, masterViewController: UIViewController, cornerRadius: CGFloat? = nil, canDissmiss: Bool,dissMissButton: HSBottomSheet.dismissButtonConfiguration?, didDissMiss: (() -> Void)? ) -> BottomSheetViewController {
         let bundle = Bundle.init(identifier: "org.cocoapods.HSBottomSheet")
@@ -146,6 +144,7 @@ class BottomSheetViewController: UIViewController , UIGestureRecognizerDelegate{
     }()
     
     @objc private func didtapOnDismissButton() {
+        didDissMiss?()
         HSBottomSheet.dismiss(vc: self.contentViewController)
     }
     
@@ -205,9 +204,9 @@ class BottomSheetViewController: UIViewController , UIGestureRecognizerDelegate{
             currentPositionTouched = panGesture.location(in: view)
         } else if panGesture.state == .changed {
             view.frame.origin = CGPoint(
-                x: view.frame.minX,
-                y: translation.y
-            )
+                           x: view.frame.minX,
+                           y: max(0, translation.y)
+                       )
             self.visualView.alpha = max(0.7, CGFloat( 0.7 - Double(translation.y / self.view.frame.height) ))
         } else if panGesture.state == .ended {
             let velocity = panGesture.velocity(in: view)
@@ -222,7 +221,7 @@ class BottomSheetViewController: UIViewController , UIGestureRecognizerDelegate{
                 }, completion: { [weak self] (isCompleted) in
                     guard let self = self else { return }
                     if isCompleted && self.canDissmiss {
-                        HSBottomSheet.dismiss(vc: self.contentViewController)
+                        didtapOnDismissButton()
                     }
                     UIView.animate(withDuration: 0.2, animations: {  [weak self] in
                         guard let self = self else { return }
