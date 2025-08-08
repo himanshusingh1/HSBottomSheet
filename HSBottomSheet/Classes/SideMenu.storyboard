@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Side Menu View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController restorationIdentifier="SideMenuViewController" storyboardIdentifier="SideMenuViewController" id="Y6W-OH-hqX" customClass="SideMenuViewController" customModule="HSBottomSheet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ol7-li-90K">
+                                <rect key="frame" x="0.0" y="-1152" width="414" height="2048"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="DzL-m5-c6S">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="2048"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <gestureRecognizers/>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="09Y-w1-DkO" appends="YES" id="dIM-Ts-8OB"/>
+                                    </connections>
+                                </view>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="ol7-li-90K" secondAttribute="bottom" id="Hlf-Oi-ZcH"/>
+                            <constraint firstItem="ol7-li-90K" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="Uk5-9w-DKn"/>
+                            <constraint firstAttribute="trailing" secondItem="ol7-li-90K" secondAttribute="trailing" id="pMb-xl-usu"/>
+                            <constraint firstItem="ol7-li-90K" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="-1200" id="qHY-Tj-pC6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="panGesture" destination="09Y-w1-DkO" id="3kh-ee-FC8"/>
+                        <outlet property="visualView" destination="ol7-li-90K" id="5ig-5j-f3z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="09Y-w1-DkO">
+                    <connections>
+                        <action selector="handleGestureWithSender:" destination="Y6W-OH-hqX" id="oOp-JN-i5O"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="11.594202898550726" y="18.75"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document> 

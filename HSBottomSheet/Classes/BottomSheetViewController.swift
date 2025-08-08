@@ -103,6 +103,44 @@ public struct HSBottomSheet {
       newWindow.frame = UIApplication.shared.windows.first?.bounds ?? .zero
     }
   }
+  
+  public static func showSideMenu(
+    viewController: UIViewController,
+    configuration: SideMenuConfiguration = SideMenuConfiguration()
+  ) {
+    let sideMenuVC = SideMenuViewController.`init`(
+      contentViewController: viewController,
+      configuration: configuration
+    )
+    
+    let newWindow: UIWindow!
+    if #available(iOS 13.0, *) {
+      if let currentWindowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+        newWindow = UIWindow(windowScene: currentWindowScene)
+      } else {
+        newWindow = UIWindow(frame: UIApplication.shared.windows.first?.bounds ?? .zero)
+      }
+    } else {
+      newWindow = UIWindow(frame: UIApplication.shared.windows.first?.bounds ?? .zero)
+    }
+    
+    newWindow.windowLevel = UIWindow.Level.alert
+    newWindow.backgroundColor = .clear
+    newWindow.rootViewController = sideMenuVC
+    newWindow.makeKeyAndVisible()
+    overlayWindow.append(newWindow)
+    
+    // Set initial position based on side menu position
+    let initialX = configuration.position == .left ? 
+      -newWindow.frame.width : 
+      newWindow.frame.width
+    
+    newWindow.frame = newWindow.frame.offsetBy(dx: initialX, dy: 0)
+    
+    UIView.animate(withDuration: 0.3) {
+      newWindow.frame = UIApplication.shared.windows.first?.bounds ?? .zero
+    }
+  }
 }
 class BottomSheetViewController: UIViewController , UIGestureRecognizerDelegate{
   var didDissMiss:( () -> Void )?
