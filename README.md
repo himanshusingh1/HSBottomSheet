@@ -123,9 +123,18 @@ Both bottom sheets and side menus can be dismissed programmatically:
 // Dismiss specific view controller
 HSBottomSheet.dismiss(vc: yourViewController)
 
+// Dismiss side menu specifically
+HSBottomSheet.dismissSideMenu(vc: yourViewController)
+
 // Dismiss all presented sheets/menus
 HSBottomSheet.dismissAll()
 ```
+
+### User Interaction
+
+- **Tap outside content**: Side menus can be dismissed by tapping on the background area
+- **Swipe gesture**: Swipe left/right to dismiss side menus (configurable threshold)
+- **Dismiss button**: Customizable dismiss button positioned outside the menu content
 
 ## Author
 

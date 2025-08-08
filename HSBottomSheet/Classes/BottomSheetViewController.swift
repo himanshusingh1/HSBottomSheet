@@ -24,6 +24,10 @@ public struct HSBottomSheet {
     overlayWindow.removeAll()
     UIApplication.shared.delegate?.window??.makeKeyAndVisible()
   }
+  
+  public static func dismissSideMenu(vc: UIViewController) {
+    dismiss(vc: vc)
+  }
   public static func dismiss(vc: UIViewController) {
     func removeWindow(window: UIWindow) {
       UIView.animate(withDuration: 0.3) {

@@ -65,6 +65,12 @@ class SideMenuViewController: UIViewController, UIGestureRecognizerDelegate {
         return button
     }()
     
+    lazy private var backgroundTapGesture: UITapGestureRecognizer = {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleBackgroundTap))
+        tapGesture.delegate = self
+        return tapGesture
+    }()
+    
     // MARK: - Initialization
     class func `init`(
         contentViewController: UIViewController,
@@ -90,6 +96,7 @@ class SideMenuViewController: UIViewController, UIGestureRecognizerDelegate {
     // MARK: - Setup Methods
     private func setupUI() {
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.01)
+        self.view.addGestureRecognizer(backgroundTapGesture)
     }
     
     private func setupContentViewController() {
@@ -98,6 +105,11 @@ class SideMenuViewController: UIViewController, UIGestureRecognizerDelegate {
         self.view.addSubview(self.contentViewController.view)
         self.contentViewController.didMove(toParent: self)
         addAutoLayout()
+        
+        // Add pan gesture to content view for dragging
+        let contentPanGesture = UIPanGestureRecognizer(target: self, action: #selector(handleContentPanGesture))
+        contentPanGesture.delegate = self
+        self.contentViewController.view.addGestureRecognizer(contentPanGesture)
     }
     
     private func setupDismissButton() {
@@ -178,11 +190,25 @@ class SideMenuViewController: UIViewController, UIGestureRecognizerDelegate {
     
     // MARK: - Actions
     @objc private func didTapOnDismissButton() {
+        dismissSideMenu()
+    }
+    
+    private func dismissSideMenu() {
         configuration.didDismiss?()
         HSBottomSheet.dismiss(vc: self.contentViewController)
     }
     
+    @objc private func handleBackgroundTap() {
+        if configuration.canDismiss {
+            dismissSideMenu()
+        }
+    }
+    
     @IBAction func handleGesture(sender: UIPanGestureRecognizer) {
+        panGestureAction(sender)
+    }
+    
+    @objc private func handleContentPanGesture(sender: UIPanGestureRecognizer) {
         panGestureAction(sender)
     }
     
@@ -203,26 +229,27 @@ class SideMenuViewController: UIViewController, UIGestureRecognizerDelegate {
                 y: view.frame.minY
             )
             
-            self.visualView.alpha = max(0.7, CGFloat(0.7 - Double(abs(translation.x) / self.view.frame.width)))
+            self.visualView.alpha = max(0.3, CGFloat(0.7 - Double(abs(translation.x) / self.view.frame.width)))
         } else if panGesture.state == .ended {
             let velocity = panGesture.velocity(in: view)
             let shouldDismiss = (configuration.position == .left && velocity.x <= -1500) ||
                                (configuration.position == .right && velocity.x >= 1500) ||
-                               abs(translation.x) > view.frame.width * 0.5
+                               abs(translation.x) > view.frame.width * 0.3
             
             if shouldDismiss && configuration.canDismiss {
-                UIView.animate(withDuration: 0.2, animations: { [weak self] in
+                UIView.animate(withDuration: 0.3, animations: { [weak self] in
                     guard let self = self else { return }
                     let dismissX = self.configuration.position == .left ? 
                         -self.view.frame.width : 
                         self.view.frame.width
                     self.view.frame.origin = CGPoint(x: dismissX, y: self.view.frame.origin.y)
+                    self.visualView.alpha = 0
                 }, completion: { [weak self] _ in
                     guard let self = self else { return }
-                    self.didTapOnDismissButton()
+                    self.dismissSideMenu()
                 })
             } else {
-                UIView.animate(withDuration: 0.2, animations: { [weak self] in
+                UIView.animate(withDuration: 0.3, animations: { [weak self] in
                     guard let self = self else { return }
                     self.visualView.alpha = 0.7
                     self.view.center = self.originalPosition!
@@ -233,6 +260,15 @@ class SideMenuViewController: UIViewController, UIGestureRecognizerDelegate {
     
     // MARK: - UIGestureRecognizerDelegate
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        // Only allow background tap gesture if the touch is on the background (not on content)
+        if gestureRecognizer === backgroundTapGesture {
+            let location = touch.location(in: view)
+            return !contentViewController.view.frame.contains(location)
+        }
         return true
     }
 } 
